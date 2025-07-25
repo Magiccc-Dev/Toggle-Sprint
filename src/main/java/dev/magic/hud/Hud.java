@@ -1,3 +1,4 @@
+
 package dev.magic.hud;
 
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -7,15 +8,15 @@ import net.minecraft.text.Text;
 import net.minecraft.text.Style;
 
 public class Hud {
-	protected MinecraftClient mc = MinecraftClient.getInstance();
+    private final MinecraftClient mc = MinecraftClient.getInstance();
     private boolean isSprintToggled = false;
 
     public void register() {
         HudRenderCallback.EVENT.register(this::renderSprintStatus);
     }
 
-    public void showStatus(boolean isSprintToggled) {
-        this.isSprintToggled = isSprintToggled;
+    public void showStatus(boolean toggled) {
+        this.isSprintToggled = toggled;
     }
 
     private void renderSprintStatus(DrawContext drawContext, float tickDelta) {
@@ -23,12 +24,10 @@ public class Hud {
             return;
         }
 
-        int x = 10;  
-        int y = 10; 
+        int x = 10;
+        int y = 10;
 
-        Text textToRender = Text.literal("Sprint Toggled")
-                .setStyle(Style.EMPTY.withColor(0xFFFFFF)); 
-
+        Text textToRender = Text.literal("Sprint Toggled").setStyle(Style.EMPTY);
         drawContext.drawTextWithShadow(mc.textRenderer, textToRender, x, y, 0xFFFFFF);
     }
 }
