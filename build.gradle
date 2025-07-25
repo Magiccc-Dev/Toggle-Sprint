@@ -7,7 +7,7 @@ sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
-version = "mc${project.supported_versions}-v${project.mod_version}"
+version = "mc1.20.X-v${project.mod_version}"
 group = project.maven_group
 
 repositories {
